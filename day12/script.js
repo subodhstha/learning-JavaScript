@@ -30,3 +30,54 @@ const mobile = {
 
 // localStorage.clear()
 
+
+// let my_name = "test"
+// // ES6: templetstring
+// const my_str =  `my name is ${my_name} ${1+2}`;
+// console.log(my_str);
+
+/*
+// insertAdjacentElement
+const heroContainer = document.getElementById("hero-container");
+// create element
+const div = document.createElement("div");
+
+// add class to the newly created div
+div.className = "custom-div"
+
+// adding content
+div.textContent = "hi everyone";
+
+heroContainer.insertAdjacentElement("beforebegin",div);
+
+console.log(heroContainer);
+*/
+
+// Filter()
+// scenario
+const myFavBooks =[
+    {
+        author : "Parijat",
+        bookName : "The parijat",
+        price :120
+    },
+    {
+        author : "Bill Gate",
+        bookName: "The Road Ahead",
+        price:100
+    },
+    {
+        author:"J.K Rowling",
+        bookName: "The Harry Potter",
+        price : 150
+    }
+
+]
+// console.log(myFavBooks.__proto__ === Array.prototype);
+
+//filter()
+ let myFilteredItems = myFavBooks.filter(function(book){
+    // console.log(book.price);
+    return book.price > 100; // when true
+})
+console.log(myFilteredItems);
