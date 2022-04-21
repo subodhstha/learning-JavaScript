@@ -16,7 +16,7 @@
 
 // Conditional
 // if (false){
-//     console.log("it run sucessfully");
+//     console.log("it run successfully");
 // }
 // else{
 //     console.log("hello");
