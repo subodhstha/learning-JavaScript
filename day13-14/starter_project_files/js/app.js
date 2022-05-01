@@ -6,7 +6,7 @@ const fullName     = document.querySelector("#full-name");
 const mobileNumber = document.querySelector("#mobile-number");
 const role = document.querySelector("#role");
 
-// show the save items on localStorage when th epage loads
+// show the save items on localStorage when the page loads
 document.addEventListener("DOMContentLoaded",function(){
     // steps
     // get the items from the localStorage
@@ -61,7 +61,7 @@ form.addEventListener("submit",function (e) {
     // add the html/content to the innerHTML property of the newly created
     div.className = "card;"
     // show it on the screen 
-    let htmlTemplet = `
+    let htmlTemplate = `
     <b>Officer's desk</b>
     <div class="card-inner">
         <div class="card-inner-item">
@@ -82,24 +82,24 @@ form.addEventListener("submit",function (e) {
         <div class="trash-container"><i class="fa fa-trash trash-icon"></i></div>
     </div>
     `;
-    // add templet to the div
-    div.innerHTML = htmlTemplet;
+    // add template to the div
+    div.innerHTML = htmlTemplate;
 
     // show it to UI
     cards.insertAdjacentElement("beforeend", div);
 
-    // show sucess message
+    // show success message
     // create div
-    const sucess = document.createElement("div");
+    const success = document.createElement("div");
     // add class
-    sucess.className = "success-message";
+    success.className = "success-message";
     // text to show
-    sucess.textContent = "form is sucessfully submited";
+    success.textContent = "form is successfully submitted";
     // to show the message in screen
-    form.insertAdjacentElement("beforebegin",sucess);
-    // remove sucess message
+    form.insertAdjacentElement("beforebegin",success);
+    // remove success message
     setTimeout(function() {
-        sucess.remove();
+        success.remove();
     }, 4000);
 
     // store it on the localStorage
@@ -143,7 +143,7 @@ form.addEventListener("submit",function (e) {
         // show error message in the UI
         form.insertAdjacentElement("beforebegin",errEl)
 
-        // make that error message disapper after few seconds
+        // make that error message disappear after few seconds
         setTimeout(function(){
             // if (document.querySelector(".error-message") !== null)
             // {
@@ -165,7 +165,7 @@ document.body.addEventListener("click",function(e)
     if (e.target.classList.contains("trash-icon")) {
         e.target.parentElement.parentElement.parentElement.remove();
     }
-    // delete from localStroge
+    // delete from localStorage
     let employeeDetails = JSON.parse(localStorage.getItem("employeeDetails"));
     // took phone number from UI
     let phoneNumber = e.target.parentElement.parentElement.previousElementSibling.children[1].children[2].textContent;
