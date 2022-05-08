@@ -47,7 +47,7 @@
 // let b = 20n;
 // console.log(a + b);
 
-// BigInt doesnot work in division
+// BigInt doesn't work in division
 // let a = 10n;
 // let b = 20n;
 // console.log(a / b);
@@ -64,7 +64,7 @@
 // let mobile = {
 //     color : "Black",
 //     price : "2000",
-//     brand : "Aamsung",
+//     brand : "samsung",
 //     os    : "Android"
 // };
 // console.log(mobile);
