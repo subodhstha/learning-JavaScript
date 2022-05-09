@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="number" id="textField">
+    <button onclick="fetchData()">Fetch</button>
+    <br>
+    <output>
+
+    </output>
+
+</body>
+<script>
+    function fetchData(){
+    const fetchData = fetch(`http://numbersapi.com/${document.getElementById("textField").value}`,
+        {
+            method:"GET",
+            headers:{
+                accept: "application/json",
+            },
+            cache:"default",
+            mode:"cors"
+        })
+        .then((response)=>response.text())
+        .then((d) => document.getElementsByTagName("output")[0].innerHTML=d)
+        .catch((err) => document.getElementsByTagName("output")[0].innerHTML= `<b>Error occurred : ${err} </br>`);
+    }
+    /*const fetchData = fetch("http://numbersapi.com/4");
+    //console.log(fetchData);
+
+    const data = fetchData.then(function(response){
+        return response.text();
+    });
+
+    data.then(function (d)
+    {
+        console.log(d);
+    });
+
+    //console.log(data)*/
+</script>
+</html>
