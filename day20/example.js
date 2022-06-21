@@ -2,7 +2,7 @@ console.log("a");
 
 // asynchronous
 setTimeout(() => {
-console.log("hello");    
+    console.log("hello");    
 }, 1000);
 
 console.log("b");
