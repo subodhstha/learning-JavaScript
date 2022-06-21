@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputField">
+    <button onclick="handleSubmit()">Submit</button>
+</body>
+<script>
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((data)=>{
+        if(!data[0].interest){
+            //throw "Interest key is not found in json."
+            throw new ReferenceError ("Interest key is not found in json.")
+        }
+    })
+    .catch((err) => console.log(err));
+
+    /*function handleSubmit(){
+        var data = document.getElementById("inputField").value;
+        try{
+            if(isNaN(data)){
+                throw "Not a number";
+            }
+            else if(data > 100) {
+                throw "Data should be less than 100";
+            }
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    */
+
+    /*console.log("Hello");
+    
+    try
+    {
+        console.log("How are you?")
+        console.log(hello());
+    }
+
+    catch(err)
+    {
+        //console.log(err)
+        //console.log(err.message)
+        //console.log(err.stack)
+        console.log(err.name)
+    }
+
+    finally
+    {
+        console.log("Resolve")
+    }
+    console.log("hi")
+    */
+    
+</script>
+</html>
