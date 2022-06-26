@@ -14,6 +14,7 @@
     fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then((data)=>{
+        //document.body.innerHTML = JSON.stringify(data, null,7)
         if(!data[0].interest){
             //throw "Interest key is not found in json."
             throw new ReferenceError ("Interest key is not found in json.")
