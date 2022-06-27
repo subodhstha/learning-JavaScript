@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="" id="inputField">
+        <button onclick="validateData(event)">validate</button>
+    </form>
+    <span id="output"></span>
+</body>
+<script>
+    function validateData(event){
+        event.preventDefault();
+        var data = document.getElementById("inputField").value;
+        //var result = data.match(/[0-9]/g);
+        //var result = data.match(/^[0-9]{2}$/g);//fix length
+        
+
+        //e-mail validate
+        //var result = data.match(/^(([a-z0-9\.]{3,15})@([a-z]{3,10})\.([a-z]{2,10}))$/);
+        
+        //phone number validate
+        //var result = data.match(/^(\+977)?(98)[0-9]{8}$/)
+
+        //url validate
+        var result = data.match(/^(http(s)?:\/\/\/[a-z0-9]{2,15}\.{a-z}{2,5})$/);
+        console.log(result);
+        var output = document.getElementById("output");
+    
+        if (result){
+            output.innerText = "validated";
+        }
+        else{
+            output.innerText = "invalid format";
+        }
+    }
+    //var data = "a quick brown fox jump over the lazy dog";
+    //+ = one or more
+    //* = zero or many
+    //? = optional
+
+    //var result = data.search(/cat/i);
+    //var result = data.match(/a/);
+    //var result = data.match(/a/gi);
+    //var result = data.match(/[A-Z]/g);
+
+    //var result = data.match(/i+/g);
+    //var result = data.match(/i*s/g);
+    //var result = data.match(/[a-z]{2,5}/g);//length of 2-5
+    //console.log(result);
+</script>
+</html>
