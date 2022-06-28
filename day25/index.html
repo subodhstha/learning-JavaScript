@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+</head>
+<body class="container p-4">
+    <form>
+        <h3>To Do list</h3>
+        <input type="text" id="inputField" class="form-control">
+        <center><button onclick="addToDo(event)" class="btn btn-success mt-4">Add Todo</button></center>
+    </form>
+    <hr>
+    <div id="container" class="mt-5 p-4"></div>
+</body>
+
+<script>
+    var toDoList = [];
+    const inputField = document.getElementById("inputField");
+
+    const container = document.getElementById("container");
+
+    function init(){
+        // reads data from localStorage
+        toDoList = JSON.parse(localStorage.getItem("toDoList"))
+        // after reading data; render the list on the screen
+        renderList()
+    }
+    // initialize the init() function
+    init();
+
+    function addToDo(event){
+        event.preventDefault();
+        toDoList.push({
+            data: inputField.value,
+            // data: Date(),
+        });
+        inputField.value = "";
+
+        localStorage.setItem("toDoList", JSON.stringify(toDoList));
+        renderList();
+    }
+
+    function renderList(){
+        container.innerHTML = "";
+        toDoList.forEach((toDo,index) =>{
+            container.innerHTML += `
+            <div class="alert alert-success">
+            <h3 onclick="deleteToDo(${index})" style="cursor:pointer">${toDo.data}</h3>
+            <small>${toDo.Date}</small>
+            </div>
+            `;
+        });
+    }
+
+    function deleteToDo(idx){
+        var result = confirm("Do you want to delete todo ?")
+        if(result){
+            toDoList = toDoList.filter((value,index)=> index != idx);
+            
+            localStorage.setItem("toDoList",JSON.stringify(toDoList))
+            renderList();
+        }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>
