@@ -68,4 +68,24 @@ a{
 }
 h1,h2,h3,h4{
     letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--ff-primary);
+}
+h1{
+    font-size: 3rem;
+}
+h2{
+    font-size: 2 rem;
+}
+h3{
+    font-size: 1.25rem;
+}
+h4{
+    font-size: 0.875rem;
+}
+p{
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-5);
 }
